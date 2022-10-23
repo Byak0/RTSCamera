@@ -25,18 +25,6 @@
     <DotNetCliToolReference Include="dotnet-md2html" Version="1.0.0.1-preview1" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="SandBox">
-      <HintPath>$(GamePath)Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
-    </Reference>
-    <Reference Include="SandBox.GauntletUI">
-      <HintPath>$(GamePath)Modules\SandBox\bin\Win64_Shipping_Client\SandBox.GauntletUI.dll</HintPath>
-    </Reference>
-    <Reference Include="SandBox.View">
-      <HintPath>$(GamePath)Modules\SandBox\bin\Win64_Shipping_Client\SandBox.View.dll</HintPath>
-    </Reference>
-    <Reference Include="SandBox.ViewModelCollection">
-      <HintPath>$(GamePath)Modules\SandBox\bin\Win64_Shipping_Client\SandBox.ViewModelCollection.dll</HintPath>
-    </Reference>
     <Reference Include="TaleWorlds.CampaignSystem">
       <HintPath>$(GamePath)bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
     </Reference>

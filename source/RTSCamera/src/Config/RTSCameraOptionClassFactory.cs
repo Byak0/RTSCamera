@@ -229,7 +229,7 @@ namespace RTSCamera.Config
                             new SelectionItem(true, "str_rts_camera_auto_set_player_formation", "DeploymentStage"),
                             new SelectionItem(true, "str_rts_camera_auto_set_player_formation", "Always")
                         }), true));
-                controlOptionCategory.AddOption(new SelectionOptionViewModel(
+                /*controlOptionCategory.AddOption(new SelectionOptionViewModel(
                     GameTexts.FindText("str_rts_camera_watch_another_hero"),
                     GameTexts.FindText("str_rts_camera_watch_another_hero_hint"),
                     new WatchAgentSelectionData(missionScreen).SelectionOptionData, true));
@@ -240,12 +240,12 @@ namespace RTSCamera.Config
                     {
                         selectCharacterView.IsSelectingCharacter = true;
                         menuManager.RequestToCloseMenu();
-                    }));
-                controlOptionCategory.AddOption(new BoolOptionViewModel(
+                    }));*/
+                /*controlOptionCategory.AddOption(new BoolOptionViewModel(
                     GameTexts.FindText("str_rts_camera_control_ally_after_death"),
                     GameTexts.FindText("str_rts_camera_control_ally_after_death_hint"),
                     () => RTSCameraConfig.Get().ControlAllyAfterDeath,
-                    b => RTSCameraConfig.Get().ControlAllyAfterDeath = b));
+                    b => RTSCameraConfig.Get().ControlAllyAfterDeath = b));*/
                 controlOptionCategory.AddOption(new BoolOptionViewModel(
                     GameTexts.FindText("str_rts_camera_prefer_unit_in_same_formation"),
                     GameTexts.FindText("str_rts_camera_prefer_unit_in_same_formation_hint"),
@@ -265,7 +265,7 @@ namespace RTSCamera.Config
 
                 var miscellaneousOptionCategory = new OptionCategory("Miscellaneous",
                     GameTexts.FindText("str_rts_camera_miscellaneous_options"));
-                miscellaneousOptionCategory.AddOption(new ActionOptionViewModel(GameTexts.FindText("str_rts_camera_toggle_pause"), GameTexts.FindText("str_rts_camera_toggle_pause_hint"),
+                /*miscellaneousOptionCategory.AddOption(new ActionOptionViewModel(GameTexts.FindText("str_rts_camera_toggle_pause"), GameTexts.FindText("str_rts_camera_toggle_pause_hint"),
                     () =>
                     {
                         rtsCameraLogic.MissionSpeedLogic?.TogglePause();
@@ -279,7 +279,7 @@ namespace RTSCamera.Config
                     GameTexts.FindText("str_rts_camera_slow_motion_factor"),
                     GameTexts.FindText("str_rts_camera_slow_motion_factor_hint"),
                     () => RTSCameraConfig.Get().SlowMotionFactor,
-                    f => rtsCameraLogic.MissionSpeedLogic.SetSlowMotionFactor(f), 0, 3, false, true));
+                    f => rtsCameraLogic.MissionSpeedLogic.SetSlowMotionFactor(f), 0, 3, false, true));*/
                 miscellaneousOptionCategory.AddOption(new BoolOptionViewModel(
                     GameTexts.FindText("str_rts_camera_display_mod_message"),
                     GameTexts.FindText("str_rts_camera_display_message_hint"),
@@ -305,7 +305,7 @@ namespace RTSCamera.Config
                 {
                     var cheatOptionCategory = new OptionCategory("Cheat",
                         GameTexts.FindText("str_rts_camera_unbalanced_options_description"));
-                    cheatOptionCategory.AddOption(new BoolOptionViewModel(
+                    /*cheatOptionCategory.AddOption(new BoolOptionViewModel(
                         GameTexts.FindText("str_rts_camera_all_invulnerable"),
                         GameTexts.FindText("str_rts_camera_all_invulnerable_hint"),
                         () => rtsCameraLogic.DisableDeathLogic.GetDisableDeath(),
@@ -327,7 +327,7 @@ namespace RTSCamera.Config
                         GameTexts.FindText("str_rts_camera_enable_switch_team_hotkey"), null,
                         () => RTSCameraConfig.Get().SwitchTeamHotkeyEnabled,
                         b => RTSCameraConfig.Get().SwitchTeamHotkeyEnabled = b));
-                    optionClass.AddOptionCategory(1, cheatOptionCategory);
+                    optionClass.AddOptionCategory(1, cheatOptionCategory);*/
                 }
 
                 return optionClass;

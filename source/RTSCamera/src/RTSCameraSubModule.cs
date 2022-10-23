@@ -13,9 +13,9 @@ using RTSCamera.Config.HotKey;
 using RTSCamera.Patch;
 using RTSCamera.Patch.Fix;
 using RTSCamera.src.Patch.Fix;
-using SandBox.CampaignBehaviors;
-using SandBox.Missions.MissionLogics.Arena;
-using SandBox.Objects;
+//using SandBox.CampaignBehaviors;
+//using SandBox.Missions.MissionLogics.Arena;
+//using SandBox.Objects;
 using System;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
@@ -57,7 +57,7 @@ namespace RTSCamera
                         typeof(Patch_RangedSiegeWeaponView).GetMethod("HandleUserInput_Prefix",
                             BindingFlags.Static | BindingFlags.Public)));
 
-                _harmony.Patch(
+                /*_harmony.Patch(
                     typeof(CommonVillagersCampaignBehavior).GetMethod("CheckIfConversationAgentIsEscortingThePlayer",
                         BindingFlags.Instance | BindingFlags.NonPublic),
                     prefix: new HarmonyMethod(typeof(Patch_CommonVillagersCampaignBehavior).GetMethod(
@@ -75,7 +75,8 @@ namespace RTSCamera
                         BindingFlags.Instance | BindingFlags.Public),
                     new HarmonyMethod(typeof(Patch_PassageUsePoint).GetMethod(
                         nameof(Patch_PassageUsePoint.IsDisabledForAgent_Prefix),
-                        BindingFlags.Static | BindingFlags.Public)));
+                        BindingFlags.Static | BindingFlags.Public)));*/
+
                 _harmony.Patch(
                     typeof(TeamAIComponent).GetMethod("TickOccasionally",
                         BindingFlags.Instance | BindingFlags.Public),
@@ -118,7 +119,7 @@ namespace RTSCamera
                 _successPatch &= Patch_OrderOfBattleVM.Patch();
                 _successPatch &= Patch_MissionGauntletMainAgentEquipDropView.Patch();
                 _successPatch &= Patch_MissionGauntletMainAgentEquipmentControllerView.Patch();
-                _successPatch &= Patch_DeploymentMissionController.Patch();
+                //_successPatch &= Patch_DeploymentMissionController.Patch();
                 // Use Patch to add game menu
                 WatchBattleBehavior.Patch(_harmony);
             }

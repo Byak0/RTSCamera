@@ -1,5 +1,5 @@
 ﻿using RTSCamera.Config.HotKey;
-using SandBox.Missions.MissionLogics.Arena;
+//using SandBox.Missions.MissionLogics.Arena;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
@@ -56,7 +56,7 @@ namespace RTSCamera.Utilities
             }
         }
 
-        public static bool IsArenaCombat(Mission mission)
+        /*public static bool IsArenaCombat(Mission mission)
         {
             foreach (var missionLogic in mission.MissionLogics)
             {
@@ -65,12 +65,11 @@ namespace RTSCamera.Utilities
             }
 
             return false;
-        }
+        }*/
 
         public static bool IsBattleCombat(Mission mission)
         {
-            return mission.Mode == MissionMode.Battle && mission.CombatType == Mission.MissionCombatType.Combat &&
-                   !IsArenaCombat(mission);
+            return mission.Mode == MissionMode.Battle && mission.CombatType == Mission.MissionCombatType.Combat;// && !IsArenaCombat(mission);
         }
     }
 }

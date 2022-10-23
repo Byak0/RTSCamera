@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Module>
-  <Name value="RTS Camera"/>
-  <Id value="RTSCamera"/>
-  <Version value="e4.1.15"/>
-  <SingleplayerModule value="true"/>
-  <MultiplayerModule value="false"/>
+  <Name value="RTS Camera MP"/>
+  <Id value="RTSCameraMP"/>
+  <Version value="e4.1.15.0"/>
+	<ModuleCategory value="Multiplayer"/>
   <DependedModules>
     <DependedModule Id="Native" DependentVersion="e1.8.1" />
-    <DependedModule Id="SandBoxCore" DependentVersion="e1.8.1" />
-    <DependedModule Id="Sandbox" DependentVersion="e1.8.1" />
-    <DependedModule Id="CustomBattle" DependentVersion="e1.8.1"/>
-    <DependedModule Id="StoryMode" DependentVersion="e1.8.1" />
   </DependedModules>
   <SubModules>
     <SubModule>

@@ -1,9 +1,9 @@
-﻿using MissionLibrary.Event;
+﻿/*using MissionLibrary.Event;
 using MissionSharedLibrary.Utilities;
 using RTSCamera.CampaignGame.Behavior;
 using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.MapEvents;
+//using TaleWorlds.CampaignSystem;
+//using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
@@ -88,3 +88,4 @@ namespace RTSCamera.Logic.SubLogic
         }
     }
 }
+*/
