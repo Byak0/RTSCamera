@@ -189,12 +189,12 @@ namespace RTSCamera.Logic.SubLogic
                     if (_isFirstTimeMainAgentChanged)
                     {
                         // try to switch to free camera by default.
-                        _isFirstTimeMainAgentChanged = false;
+                        /*_isFirstTimeMainAgentChanged = false;
                         if (_config.UseFreeCameraByDefault || WatchBattleBehavior.WatchMode)
                         {
                             _switchToFreeCameraAfter100ms = true;
                             _switchToFreeCameraTimer = 0;
-                        }
+                        }*/
                     }
                     if (Mission.MainAgent.Formation != null)
                         CurrentPlayerFormation = Mission.MainAgent.Formation.FormationIndex;
@@ -220,7 +220,7 @@ namespace RTSCamera.Logic.SubLogic
             Utility.AIControlMainAgent(false);
         }
 
-        public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+        /*public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
         {
             if (affectedAgent == null)
             {
@@ -265,7 +265,7 @@ namespace RTSCamera.Logic.SubLogic
                     affectedAgent.Team.PlayerOrderController.Owner = null;
                 }
             }
-        }
+        }*/
 
         private void SwitchToAgent()
         {

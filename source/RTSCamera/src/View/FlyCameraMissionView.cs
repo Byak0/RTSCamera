@@ -60,8 +60,8 @@ namespace RTSCamera.View
         private readonly bool _classicMode = true;
         private bool _levelToEdge;
         private bool _lockToAgent;
-        private GauntletLayer _showControlHintLayer;
-        private ShowControlHintVM _showControlHintVM;
+        //private GauntletLayer _showControlHintLayer;
+        //private ShowControlHintVM _showControlHintVM;
 
         public bool LockToAgent
         {
@@ -76,12 +76,12 @@ namespace RTSCamera.View
                 {
                     if (MissionScreen.LastFollowedAgent != null && MissionScreen.LastFollowedAgent.Team == Mission.PlayerTeam)
                     {
-                        _showControlHintVM.SetShowText(true, true, MissionScreen.LastFollowedAgent.Name);
+                        //_showControlHintVM.SetShowText(true, true, MissionScreen.LastFollowedAgent.Name);
                     }
                 }
                 else if ((_freeCameraLogic == null || !_freeCameraLogic.IsSpectatorCamera))
                 {
-                    DisableControlHint();
+                    //DisableControlHint();
                 }
             }
         }
@@ -228,10 +228,10 @@ namespace RTSCamera.View
             _rtsCameraLogic = Mission.GetMissionBehavior<RTSCameraLogic>();
             _freeCameraLogic = _rtsCameraLogic.SwitchFreeCameraLogic;
 
-            _showControlHintVM = new ShowControlHintVM(Mission.GetMissionBehavior<SiegeDeploymentHandler>() == null);
-            _showControlHintLayer = new GauntletLayer(ViewOrderPriority);
-            _showControlHintLayer.LoadMovie("RTSCameraShowControlHint", _showControlHintVM);
-            MissionScreen.AddLayer(_showControlHintLayer);
+            //_showControlHintVM = new ShowControlHintVM(Mission.GetMissionBehavior<SiegeDeploymentHandler>() == null);
+            //_showControlHintLayer = new GauntletLayer(ViewOrderPriority);
+            //_showControlHintLayer.LoadMovie("RTSCameraShowControlHint", _showControlHintVM);
+            //MissionScreen.AddLayer(_showControlHintLayer);
 
             MissionLibrary.Event.MissionEvent.ToggleFreeCamera += OnToggleFreeCamera;
 
@@ -243,9 +243,9 @@ namespace RTSCamera.View
         {
             base.OnMissionScreenFinalize();
 
-            MissionScreen.RemoveLayer(_showControlHintLayer);
-            _showControlHintLayer = null;
-            _showControlHintVM = null;
+            //MissionScreen.RemoveLayer(_showControlHintLayer);
+            //_showControlHintLayer = null;
+            //_showControlHintVM = null;
 
             MissionScreen.OnSpectateAgentFocusIn -= MissionScreenOnSpectateAgentFocusIn;
             MissionScreen.OnSpectateAgentFocusOut -= MissionScreenOnSpectateAgentFocusOut;
@@ -295,21 +295,21 @@ namespace RTSCamera.View
 
         private void MissionScreenOnSpectateAgentFocusIn(Agent agent)
         {
-            _showControlHintVM.SetShowText(true,
+            /*_showControlHintVM.SetShowText(true,
                 !WatchBattleBehavior.WatchMode && (LockToAgent || Mission.MainAgent == null) && Utility.IsTeamValid(agent.Team) &&
-                agent.Team == Mission.PlayerTeam, LockToAgent ? agent.Name : null);
+                agent.Team == Mission.PlayerTeam, LockToAgent ? agent.Name : null);*/
         }
 
         public void DisableControlHint()
         {
-            _showControlHintVM.SetShowText(false, false);
+            //_showControlHintVM.SetShowText(false, false);
         }
 
         private void MissionScreenOnSpectateAgentFocusOut(Agent agent)
         {
-            _showControlHintVM.SetShowText(false,
+            /*_showControlHintVM.SetShowText(false,
                 !WatchBattleBehavior.WatchMode && Mission.MainAgent == null &&
-                Mission.PlayerTeam?.ActiveAgents.Count > 0);
+                Mission.PlayerTeam?.ActiveAgents.Count > 0);*/
         }
 
         private void OnToggleFreeCamera(bool freeCamera)

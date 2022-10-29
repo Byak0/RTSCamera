@@ -7,7 +7,7 @@
   <DependedModules>
     <DependedModule Id="Native" DependentVersion="e1.8.1" />
   </DependedModules>
-  <SubModules>
+	<SubModules>
     <SubModule>
       <Name value="RTSCameraSubModule"/>
       <DLLName value="RTSCamera.dll"/>

@@ -11,7 +11,7 @@ namespace RTSCamera.Logic.SubLogic
     {
         private readonly RTSCameraLogic _logic;
         private readonly RTSCameraConfig _config = RTSCameraConfig.Get();
-        private ControlTroopLogic _controlTroopLogic;
+        //private ControlTroopLogic _controlTroopLogic;
 
         public Mission Mission => _logic.Mission;
 
@@ -22,7 +22,7 @@ namespace RTSCamera.Logic.SubLogic
 
         public void OnBehaviourInitialize()
         {
-            _controlTroopLogic = _logic.ControlTroopLogic;
+            //_controlTroopLogic = _logic.ControlTroopLogic;
         }
 
         public void OnMissionTick(float dt)
@@ -30,8 +30,8 @@ namespace RTSCamera.Logic.SubLogic
             if (!NativeConfig.CheatMode)
                 return;
 
-            if (_config.SwitchTeamHotkeyEnabled && RTSCameraGameKeyCategory.GetKey(GameKeyEnum.SwitchTeam).IsKeyPressed(Mission.InputManager))
-                SwapTeam();
+            /*if (_config.SwitchTeamHotkeyEnabled && RTSCameraGameKeyCategory.GetKey(GameKeyEnum.SwitchTeam).IsKeyPressed(Mission.InputManager))
+                SwapTeam();*/
         }
 
         public void SwapTeam()
@@ -59,7 +59,7 @@ namespace RTSCamera.Logic.SubLogic
             MissionLibrary.Event.MissionEvent.OnPreSwitchTeam();
             Mission.PlayerEnemyTeam.PlayerOrderController.Owner = targetAgent;
             Mission.PlayerTeam = Mission.PlayerEnemyTeam;
-            _controlTroopLogic.SetToMainAgent(targetAgent);
+            //_controlTroopLogic.SetToMainAgent(targetAgent);
             MissionLibrary.Event.MissionEvent.OnPostSwitchTeam();
 
             // TODO

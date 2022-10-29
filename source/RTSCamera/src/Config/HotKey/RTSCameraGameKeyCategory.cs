@@ -48,7 +48,7 @@ namespace RTSCamera.Config.HotKey
                 {
                     InputKey.OpenBraces
                 }));
-            result.AddGameKeySequence(new GameKeySequence((int) GameKeyEnum.SlowMotion,
+            result.AddGameKeySequence(new GameKeySequence((int)GameKeyEnum.SlowMotion,
                 nameof(GameKeyEnum.SlowMotion), CategoryId, new List<InputKey>
                 {
                     InputKey.Apostrophe
@@ -58,7 +58,7 @@ namespace RTSCamera.Config.HotKey
                 {
                     InputKey.F10
                 }));
-            result.AddGameKeySequence(new GameKeySequence((int) GameKeyEnum.DisableDeath,
+            result.AddGameKeySequence(new GameKeySequence((int)GameKeyEnum.DisableDeath,
                 nameof(GameKeyEnum.DisableDeath), CategoryId, new List<InputKey>
                 {
                     InputKey.End
@@ -68,17 +68,17 @@ namespace RTSCamera.Config.HotKey
                 {
                     InputKey.E
                 }));
-            result.AddGameKeySequence(new GameKeySequence((int) GameKeyEnum.ToggleHUD, nameof(GameKeyEnum.ToggleHUD),
+            result.AddGameKeySequence(new GameKeySequence((int)GameKeyEnum.ToggleHUD, nameof(GameKeyEnum.ToggleHUD),
                 CategoryId, new List<InputKey>
                 {
                     InputKey.CloseBraces
                 }));
-            result.AddGameKeySequence(new GameKeySequence((int) GameKeyEnum.SwitchTeam,
+            result.AddGameKeySequence(new GameKeySequence((int)GameKeyEnum.SwitchTeam,
                 nameof(GameKeyEnum.SwitchTeam), CategoryId, new List<InputKey>
                 {
                     InputKey.F11
                 }));
-            result.AddGameKeySequence(new GameKeySequence((int) GameKeyEnum.SelectCharacter,
+            result.AddGameKeySequence(new GameKeySequence((int)GameKeyEnum.SelectCharacter,
                 nameof(GameKeyEnum.SelectCharacter), CategoryId, new List<InputKey>
                 {
                     InputKey.SemiColon

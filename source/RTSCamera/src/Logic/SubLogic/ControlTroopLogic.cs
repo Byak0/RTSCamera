@@ -17,7 +17,7 @@ namespace RTSCamera.Logic.SubLogic
         private readonly RTSCameraConfig _config = RTSCameraConfig.Get();
         private SwitchFreeCameraLogic _switchFreeCameraLogic;
         private FlyCameraMissionView _flyCameraMissionView;
-        private RTSCameraSelectCharacterView _selectCharacterView;
+        //private RTSCameraSelectCharacterView _selectCharacterView;
 
         public Mission Mission => _rtsCameraLogic.Mission;
 
@@ -241,15 +241,15 @@ namespace RTSCamera.Logic.SubLogic
             _rtsCameraLogic = Mission.GetMissionBehavior<RTSCameraLogic>();
             _switchFreeCameraLogic = _rtsCameraLogic.SwitchFreeCameraLogic;
             _flyCameraMissionView = Mission.GetMissionBehavior<FlyCameraMissionView>();
-            _selectCharacterView = Mission.GetMissionBehavior<RTSCameraSelectCharacterView>();
+            //_selectCharacterView = Mission.GetMissionBehavior<RTSCameraSelectCharacterView>();
         }
 
         public void OnMissionTick(float dt)
         {
             if (RTSCameraGameKeyCategory.GetKey(GameKeyEnum.ControlTroop).IsKeyPressed(Mission.InputManager))
             {
-                if (_selectCharacterView.LockOnAgent(GetAgentToControl()))
-                    return;
+                //if (_selectCharacterView.LockOnAgent(GetAgentToControl()))
+                //    return;
 
                 if (!_switchFreeCameraLogic.IsSpectatorCamera && Mission.MainAgent?.Controller == Agent.ControllerType.Player)
                     return;

@@ -16,7 +16,7 @@ namespace RTSCamera.MissionStartingHandler
 
             List<MissionBehavior> list = new List<MissionBehavior>
             {
-                new RTSCameraSelectCharacterView(),
+                //new RTSCameraSelectCharacterView(),
 
                 new RTSCameraLogic(),
 

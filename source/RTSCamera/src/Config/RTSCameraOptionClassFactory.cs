@@ -27,9 +27,9 @@ namespace RTSCamera.Config
                 var optionClass = new OptionClass(RTSCameraSubModule.ModuleId,
                     GameTexts.FindText("str_rts_camera_option_class"), menuClassCollection);
                 var rtsCameraLogic = Mission.Current.GetMissionBehavior<RTSCameraLogic>();
-                var selectCharacterView = Mission.Current.GetMissionBehavior<RTSCameraSelectCharacterView>();
+                //var selectCharacterView = Mission.Current.GetMissionBehavior<RTSCameraSelectCharacterView>();
                 var hideHudView = Mission.Current.GetMissionBehavior<HideHUDView>();
-                var missionScreen = selectCharacterView.MissionScreen;
+                //var missionScreen = selectCharacterView.MissionScreen;
                 var menuManager = AMenuManager.Get();
 
                 var cameraOptionCategory = new OptionCategory("Camera", GameTexts.FindText("str_rts_camera_camera_options"));
@@ -41,11 +41,11 @@ namespace RTSCamera.Config
                         rtsCameraLogic.SwitchFreeCameraLogic.SwitchCamera();
                         menuManager.RequestToCloseMenu();
                     }));
-                cameraOptionCategory.AddOption(new BoolOptionViewModel(
+                /*cameraOptionCategory.AddOption(new BoolOptionViewModel(
                     GameTexts.FindText("str_rts_camera_use_free_camera_by_default"),
                     GameTexts.FindText("str_rts_camera_use_free_camera_by_default_hint"),
                     () => RTSCameraConfig.Get().UseFreeCameraByDefault,
-                    b => RTSCameraConfig.Get().UseFreeCameraByDefault = b));
+                    b => RTSCameraConfig.Get().UseFreeCameraByDefault = b));*/
                 cameraOptionCategory.AddOption(new NumericOptionViewModel(
                     GameTexts.FindText("str_rts_camera_raised_height_after_switching_to_free_camera"),
                     GameTexts.FindText("str_rts_camera_raised_height_hint"), () => RTSCameraConfig.Get().RaisedHeight,
@@ -153,11 +153,11 @@ namespace RTSCamera.Config
                         }, (int)Agent.ControllerType.Count, new[]
                         {
                             new SelectionItem(true, "str_rts_camera_controller_type", "none"),
-                            new SelectionItem(true, "str_rts_camera_controller_type", "AI"),
+                            //new SelectionItem(true, "str_rts_camera_controller_type", "AI"),
                             new SelectionItem(true, "str_rts_camera_controller_type", "Player")
                         }), true));
                 }
-                var playerFormationOption = new SelectionOptionViewModel(
+                /*var playerFormationOption = new SelectionOptionViewModel(
                     GameTexts.FindText("str_rts_camera_player_formation"),
                     GameTexts.FindText("str_rts_camera_player_formation_hint"), new SelectionOptionData(
                         i =>
@@ -228,7 +228,7 @@ namespace RTSCamera.Config
                             new SelectionItem(true, "str_rts_camera_auto_set_player_formation", "Never"),
                             new SelectionItem(true, "str_rts_camera_auto_set_player_formation", "DeploymentStage"),
                             new SelectionItem(true, "str_rts_camera_auto_set_player_formation", "Always")
-                        }), true));
+                        }), true));*/
                 /*controlOptionCategory.AddOption(new SelectionOptionViewModel(
                     GameTexts.FindText("str_rts_camera_watch_another_hero"),
                     GameTexts.FindText("str_rts_camera_watch_another_hero_hint"),
@@ -245,7 +245,7 @@ namespace RTSCamera.Config
                     GameTexts.FindText("str_rts_camera_control_ally_after_death"),
                     GameTexts.FindText("str_rts_camera_control_ally_after_death_hint"),
                     () => RTSCameraConfig.Get().ControlAllyAfterDeath,
-                    b => RTSCameraConfig.Get().ControlAllyAfterDeath = b));*/
+                    b => RTSCameraConfig.Get().ControlAllyAfterDeath = b));
                 controlOptionCategory.AddOption(new BoolOptionViewModel(
                     GameTexts.FindText("str_rts_camera_prefer_unit_in_same_formation"),
                     GameTexts.FindText("str_rts_camera_prefer_unit_in_same_formation_hint"),
@@ -260,7 +260,7 @@ namespace RTSCamera.Config
                     GameTexts.FindText("str_rts_camera_ignore_retreating_troops"),
                     GameTexts.FindText("str_rts_camera_ignore_retreating_troops_hint"),
                     () => RTSCameraConfig.Get().IgnoreRetreatingTroops,
-                    b => RTSCameraConfig.Get().IgnoreRetreatingTroops = b));
+                    b => RTSCameraConfig.Get().IgnoreRetreatingTroops = b));*/
                 optionClass.AddOptionCategory(0, controlOptionCategory);
 
                 var miscellaneousOptionCategory = new OptionCategory("Miscellaneous",

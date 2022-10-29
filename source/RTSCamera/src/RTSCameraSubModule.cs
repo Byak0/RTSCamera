@@ -114,9 +114,9 @@ namespace RTSCamera
                 Patch_MissionOrderVM.Patch();
                 _successPatch &= Patch_CrosshairVM.Patch();
                 _successPatch &= Patch_MissionGauntletSpectatorControl.Patch();
-                _successPatch &= Patch_ScoreboardScreenWidget.Patch();
+                //_successPatch &= Patch_ScoreboardScreenWidget.Patch();
                 _successPatch &= Patch_Mission_UpdateSceneTimeSpeed.Patch();
-                _successPatch &= Patch_OrderOfBattleVM.Patch();
+                //_successPatch &= Patch_OrderOfBattleVM.Patch();
                 _successPatch &= Patch_MissionGauntletMainAgentEquipDropView.Patch();
                 _successPatch &= Patch_MissionGauntletMainAgentEquipmentControllerView.Patch();
                 //_successPatch &= Patch_DeploymentMissionController.Patch();
@@ -190,7 +190,7 @@ namespace RTSCamera
             if (gameStarter is CampaignGameStarter campaignGameStarter)
             {
                 //campaignGameStarter.AddBehavior(new WatchBattleBehavior());
-                campaignGameStarter.AddBehavior(new RTSCameraSkillBehavior());
+                //campaignGameStarter.AddBehavior(new RTSCameraSkillBehavior());
             }
         }
 

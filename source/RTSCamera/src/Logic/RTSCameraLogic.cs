@@ -7,11 +7,11 @@ namespace RTSCamera.Logic
     public class RTSCameraLogic : MissionLogic
     {
         public CommanderLogic CommanderLogic;
-        public DisableDeathLogic DisableDeathLogic;
-        public FixScoreBoardAfterPlayerDeadLogic FixScoreBoardAfterPlayerDeadLogic;
-        public MissionSpeedLogic MissionSpeedLogic;
+        //public DisableDeathLogic DisableDeathLogic;
+        //public FixScoreBoardAfterPlayerDeadLogic FixScoreBoardAfterPlayerDeadLogic;
+        //public MissionSpeedLogic MissionSpeedLogic;
         public SwitchFreeCameraLogic SwitchFreeCameraLogic;
-        public SwitchTeamLogic SwitchTeamLogic;
+        //public SwitchTeamLogic SwitchTeamLogic;
         public ControlTroopLogic ControlTroopLogic;
         //public CampaignSkillLogic CampaignSkillLogic;
         public static RTSCameraLogic Instance;
@@ -19,11 +19,11 @@ namespace RTSCamera.Logic
         public RTSCameraLogic()
         {
             CommanderLogic = new CommanderLogic(this);
-            DisableDeathLogic = new DisableDeathLogic(this);
-            FixScoreBoardAfterPlayerDeadLogic = new FixScoreBoardAfterPlayerDeadLogic(this);
-            MissionSpeedLogic = new MissionSpeedLogic(this);
+            //DisableDeathLogic = new DisableDeathLogic(this);
+            //FixScoreBoardAfterPlayerDeadLogic = new FixScoreBoardAfterPlayerDeadLogic(this);
+            //MissionSpeedLogic = new MissionSpeedLogic(this);
             SwitchFreeCameraLogic = new SwitchFreeCameraLogic(this);
-            SwitchTeamLogic = new SwitchTeamLogic(this);
+            //SwitchTeamLogic = new SwitchTeamLogic(this);
             ControlTroopLogic = new ControlTroopLogic(this);
             //CampaignSkillLogic = new CampaignSkillLogic(this);
         }
@@ -40,9 +40,9 @@ namespace RTSCamera.Logic
             base.OnBehaviorInitialize();
 
             CommanderLogic.OnBehaviourInitialize();
-            FixScoreBoardAfterPlayerDeadLogic.OnBehaviourInitialize();
+            //FixScoreBoardAfterPlayerDeadLogic.OnBehaviourInitialize();
             SwitchFreeCameraLogic.OnBehaviourInitialize();
-            SwitchTeamLogic.OnBehaviourInitialize();
+            //SwitchTeamLogic.OnBehaviourInitialize();
             ControlTroopLogic.OnBehaviourInitialize();
             //CampaignSkillLogic.OnBehaviourInitialize();
         }
@@ -52,7 +52,7 @@ namespace RTSCamera.Logic
             base.OnRemoveBehavior();
 
             CommanderLogic.OnRemoveBehaviour();
-            FixScoreBoardAfterPlayerDeadLogic.OnRemoveBehaviour();
+            //FixScoreBoardAfterPlayerDeadLogic.OnRemoveBehaviour();
             SwitchFreeCameraLogic.OnRemoveBehaviour();
             
             Instance = null;
@@ -62,8 +62,8 @@ namespace RTSCamera.Logic
         {
             base.AfterStart();
 
-            DisableDeathLogic.AfterStart();
-            MissionSpeedLogic.AfterStart();
+            //DisableDeathLogic.AfterStart();
+            //MissionSpeedLogic.AfterStart();
         }
 
         public override void AfterAddTeam(Team team)
@@ -85,11 +85,11 @@ namespace RTSCamera.Logic
         {
             base.OnMissionTick(dt);
 
-            DisableDeathLogic.OnMissionTick(dt);
-            MissionSpeedLogic.OnMissionTick(dt);
+            //DisableDeathLogic.OnMissionTick(dt);
+            //MissionSpeedLogic.OnMissionTick(dt);
             SwitchFreeCameraLogic.OnMissionTick(dt);
-            SwitchTeamLogic.OnMissionTick(dt);
-            ControlTroopLogic.OnMissionTick(dt);
+            //SwitchTeamLogic.OnMissionTick(dt);
+            //ControlTroopLogic.OnMissionTick(dt);
         }
 
         public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)
@@ -110,7 +110,7 @@ namespace RTSCamera.Logic
         {
             base.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
 
-            SwitchFreeCameraLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+            //SwitchFreeCameraLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
         }
     }
 }
