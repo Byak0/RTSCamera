@@ -6,8 +6,8 @@ using MissionLibrary.View;
 using MissionSharedLibrary;
 using MissionSharedLibrary.Provider;
 using MissionSharedLibrary.Utilities;
-using RTSCamera.CampaignGame.Behavior;
-using RTSCamera.CampaignGame.Skills;
+//using RTSCamera.CampaignGame.Behavior;
+//using RTSCamera.CampaignGame.Skills;
 using RTSCamera.Config;
 using RTSCamera.Config.HotKey;
 using RTSCamera.Patch;
@@ -75,7 +75,7 @@ namespace RTSCamera
                         BindingFlags.Instance | BindingFlags.Public),
                     new HarmonyMethod(typeof(Patch_PassageUsePoint).GetMethod(
                         nameof(Patch_PassageUsePoint.IsDisabledForAgent_Prefix),
-                        BindingFlags.Static | BindingFlags.Public)));*/
+                        BindingFlags.Static | BindingFlags.Public)));
 
                 _harmony.Patch(
                     typeof(TeamAIComponent).GetMethod("TickOccasionally",
@@ -94,7 +94,7 @@ namespace RTSCamera
                         BindingFlags.Instance | BindingFlags.NonPublic),
                     prefix: new HarmonyMethod(
                         typeof(Patch_MissionBoundaryCrossingHandler).GetMethod("TickForMainAgent_Prefix",
-                            BindingFlags.Static | BindingFlags.Public)));
+                            BindingFlags.Static | BindingFlags.Public)));*/
                 _harmony.Patch(
                     typeof(MissionFormationMarkerVM).GetMethod("RefreshFormationPositions",
                         BindingFlags.Instance | BindingFlags.NonPublic),
@@ -102,26 +102,26 @@ namespace RTSCamera
                         nameof(Patch_MissionFormationMarkerVM.RefreshFormationPositions_Prefix),
                         BindingFlags.Static | BindingFlags.Public)));
 
-                var missionListenerOnMissionModeChange = typeof(IMissionListener).GetMethod("OnMissionModeChange", BindingFlags.Instance | BindingFlags.Public);
+                /*var missionListenerOnMissionModeChange = typeof(IMissionListener).GetMethod("OnMissionModeChange", BindingFlags.Instance | BindingFlags.Public);
 
                 var mapping = typeof(MissionScreen).GetInterfaceMap(missionListenerOnMissionModeChange.DeclaringType);
                 var index = Array.IndexOf(mapping.InterfaceMethods, missionListenerOnMissionModeChange);
                 _harmony.Patch(
                      mapping.TargetMethods[index],
                     prefix: new HarmonyMethod(typeof(Patch_MissionScreen).GetMethod("OnMissionModeChange_Prefix",
-                        BindingFlags.Static | BindingFlags.Public)));
+                        BindingFlags.Static | BindingFlags.Public)));*/
 
                 Patch_MissionOrderVM.Patch();
                 _successPatch &= Patch_CrosshairVM.Patch();
                 _successPatch &= Patch_MissionGauntletSpectatorControl.Patch();
                 //_successPatch &= Patch_ScoreboardScreenWidget.Patch();
-                _successPatch &= Patch_Mission_UpdateSceneTimeSpeed.Patch();
+                //_successPatch &= Patch_Mission_UpdateSceneTimeSpeed.Patch();
                 //_successPatch &= Patch_OrderOfBattleVM.Patch();
                 _successPatch &= Patch_MissionGauntletMainAgentEquipDropView.Patch();
                 _successPatch &= Patch_MissionGauntletMainAgentEquipmentControllerView.Patch();
                 //_successPatch &= Patch_DeploymentMissionController.Patch();
                 // Use Patch to add game menu
-                WatchBattleBehavior.Patch(_harmony);
+                //WatchBattleBehavior.Patch(_harmony);
             }
             catch (Exception e)
             {
@@ -175,24 +175,24 @@ namespace RTSCamera
             base.OnGameStart(game, gameStarterObject);
 
             game.GameTextManager.LoadGameTexts();
-            AddCampaignBehavior(gameStarterObject);
+            //AddCampaignBehavior(gameStarterObject);
         }
 
-        public override void RegisterSubModuleObjects(bool isSavedCampaign)
+        /*public override void RegisterSubModuleObjects(bool isSavedCampaign)
         {
             base.RegisterSubModuleObjects(isSavedCampaign);
             RTSCameraSkillEffects.Initialize();
 
-        }
+        }*/
 
-        private void AddCampaignBehavior(object gameStarter)
+        /*private void AddCampaignBehavior(object gameStarter)
         {
             if (gameStarter is CampaignGameStarter campaignGameStarter)
             {
-                //campaignGameStarter.AddBehavior(new WatchBattleBehavior());
-                //campaignGameStarter.AddBehavior(new RTSCameraSkillBehavior());
+                campaignGameStarter.AddBehavior(new WatchBattleBehavior());
+                campaignGameStarter.AddBehavior(new RTSCameraSkillBehavior());
             }
-        }
+        }*/
 
 
         protected override void OnSubModuleUnloaded()

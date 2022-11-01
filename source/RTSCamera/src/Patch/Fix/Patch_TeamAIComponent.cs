@@ -1,4 +1,4 @@
-﻿using TaleWorlds.MountAndBlade;
+﻿/*using TaleWorlds.MountAndBlade;
 
 namespace RTSCamera.Patch.Fix
 {
@@ -13,3 +13,4 @@ namespace RTSCamera.Patch.Fix
         }
     }
 }
+*/

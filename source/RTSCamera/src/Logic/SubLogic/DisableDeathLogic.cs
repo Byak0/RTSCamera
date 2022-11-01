@@ -1,4 +1,4 @@
-﻿using MissionLibrary.HotKey;
+﻿/*using MissionLibrary.HotKey;
 using MissionSharedLibrary.Utilities;
 using RTSCamera.Config;
 using RTSCamera.Config.HotKey;
@@ -29,10 +29,10 @@ namespace RTSCamera.Logic.SubLogic
         {
             if (!NativeConfig.CheatMode)
                 return;
-            /*if (_config.DisableDeathHotkeyEnabled && _gameKeyCategory.GetGameKeySequence((int)GameKeyEnum.DisableDeath).IsKeyPressed(Mission.InputManager))
+            if (_config.DisableDeathHotkeyEnabled && _gameKeyCategory.GetGameKeySequence((int)GameKeyEnum.DisableDeath).IsKeyPressed(Mission.InputManager))
             {
                 SetDisableDeath(!Mission.Current.DisableDying);
-            }*/
+            }
         }
 
         public bool GetDisableDeath()
@@ -56,3 +56,4 @@ namespace RTSCamera.Logic.SubLogic
         }
     }
 }
+*/

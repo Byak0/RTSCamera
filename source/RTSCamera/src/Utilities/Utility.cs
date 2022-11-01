@@ -25,9 +25,10 @@ namespace RTSCamera.Utilities
                     MissionSharedLibrary.Utilities.Utility.PlayerControlAgent(agent);
                     agent.LookDirection = agent.GetMovementDirection().ToVec3();
                     break;
-                case Agent.ControllerType.AI:
-                    MissionSharedLibrary.Utilities.Utility.AIControlMainAgent(Mission.Current.Mode == MissionMode.Battle, true);
-                    break;
+                //Multiplayer : disabling AI controller causing issues
+                //case Agent.ControllerType.AI:
+                //    MissionSharedLibrary.Utilities.Utility.AIControlMainAgent(Mission.Current.Mode == MissionMode.Battle, true);
+                //    break;
                 case Agent.ControllerType.Player:
                     MissionSharedLibrary.Utilities.Utility.PlayerControlAgent(agent);
                     break;
@@ -36,7 +37,6 @@ namespace RTSCamera.Utilities
 
         public static void UpdateMainAgentControllerState(Agent agent, bool isSpectatorCamera, Agent.ControllerType playerControllerInFreeCamera)
         {
-
             var controller = Mission.Current.GetMissionBehavior<MissionMainAgentController>();
             if (controller != null)
             {
@@ -44,7 +44,8 @@ namespace RTSCamera.Utilities
                     (!isSpectatorCamera ||
                      playerControllerInFreeCamera == Agent.ControllerType.Player))
                 {
-                    controller.CustomLookDir = isSpectatorCamera ? agent.LookDirection : Vec3.Zero;
+                    //controller.CustomLookDir = isSpectatorCamera ? agent.LookDirection : Vec3.Zero;
+                    controller.CustomLookDir = Vec3.Zero;
                     controller.IsDisabled = false;
                 }
                 else

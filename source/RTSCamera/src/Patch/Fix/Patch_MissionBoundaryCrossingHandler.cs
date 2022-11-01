@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿/*using System.Reflection;
 using RTSCamera.Logic;
 using TaleWorlds.MountAndBlade;
 
@@ -23,3 +23,4 @@ namespace RTSCamera.Patch.Fix
         }
     }
 }
+*/

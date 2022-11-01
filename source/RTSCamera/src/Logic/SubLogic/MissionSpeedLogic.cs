@@ -1,4 +1,4 @@
-﻿using MissionSharedLibrary.Utilities;
+﻿/*using MissionSharedLibrary.Utilities;
 using RTSCamera.Config;
 using RTSCamera.Config.HotKey;
 using TaleWorlds.MountAndBlade;
@@ -30,7 +30,7 @@ namespace RTSCamera.Logic.SubLogic
 
         public void OnMissionTick(float dt)
         {
-            /*if (RTSCameraGameKeyCategory.GetKey(GameKeyEnum.Pause).IsKeyPressed(Mission.InputManager))
+            if (RTSCameraGameKeyCategory.GetKey(GameKeyEnum.Pause).IsKeyPressed(Mission.InputManager))
             {
                 TogglePause();
             }
@@ -38,7 +38,7 @@ namespace RTSCamera.Logic.SubLogic
             if (RTSCameraGameKeyCategory.GetKey(GameKeyEnum.SlowMotion).IsKeyPressed(Mission.InputManager))
             {
                 SetSlowMotionMode(!_config.SlowMotionMode);
-            }*/
+            }
         }
 
         public void TogglePause()
@@ -100,3 +100,4 @@ namespace RTSCamera.Logic.SubLogic
         //}
     }
 }
+*/

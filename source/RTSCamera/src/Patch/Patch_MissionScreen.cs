@@ -1,4 +1,4 @@
-﻿using MissionSharedLibrary.Utilities;
+﻿/*using MissionSharedLibrary.Utilities;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade.View.Screens;
 
@@ -18,3 +18,4 @@ namespace RTSCamera.Patch
         }
     }
 }
+*/

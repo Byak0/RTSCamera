@@ -1,4 +1,4 @@
-﻿using MissionSharedLibrary.Utilities;
+﻿/*using MissionSharedLibrary.Utilities;
 using RTSCamera.CampaignGame.Behavior;
 using RTSCamera.Config;
 using RTSCamera.Config.HotKey;
@@ -258,4 +258,4 @@ namespace RTSCamera.Logic.SubLogic
             }
         }
     }
-}
+}*/

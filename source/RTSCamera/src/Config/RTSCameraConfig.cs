@@ -1,6 +1,5 @@
 ﻿using MissionSharedLibrary.Config;
 using MissionSharedLibrary.Utilities;
-using RTSCamera.CampaignGame.Behavior;
 using System;
 using System.IO;
 using System.Xml.Serialization;
@@ -66,13 +65,18 @@ namespace RTSCamera.Config
 
         public float RaisedHeight = 10;
 
-        public int PlayerControllerInFreeCamera = (int)Agent.ControllerType.AI;
+        public int PlayerControllerInFreeCamera = (int)Agent.ControllerType.None;
 
         public Agent.ControllerType GetPlayerControllerInFreeCamera()
         {
-            if (WatchBattleBehavior.WatchMode)
-                return Agent.ControllerType.AI;
-            return (Agent.ControllerType) PlayerControllerInFreeCamera;
+            //if (WatchBattleBehavior.WatchMode)
+            //    return Agent.ControllerType.AI;
+            
+            // For Multiplayer : return either None or Player as the controller (issues with AI controller)
+            if (PlayerControllerInFreeCamera == 1) 
+                return Agent.ControllerType.Player;
+            else 
+                return (Agent.ControllerType) PlayerControllerInFreeCamera;            
         }
 
         public int PlayerFormation = 4;

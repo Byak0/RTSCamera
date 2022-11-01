@@ -6,25 +6,25 @@ namespace RTSCamera.Logic
 {
     public class RTSCameraLogic : MissionLogic
     {
-        public CommanderLogic CommanderLogic;
+        //public CommanderLogic CommanderLogic;
         //public DisableDeathLogic DisableDeathLogic;
         //public FixScoreBoardAfterPlayerDeadLogic FixScoreBoardAfterPlayerDeadLogic;
         //public MissionSpeedLogic MissionSpeedLogic;
         public SwitchFreeCameraLogic SwitchFreeCameraLogic;
         //public SwitchTeamLogic SwitchTeamLogic;
-        public ControlTroopLogic ControlTroopLogic;
+        //public ControlTroopLogic ControlTroopLogic;
         //public CampaignSkillLogic CampaignSkillLogic;
         public static RTSCameraLogic Instance;
 
         public RTSCameraLogic()
         {
-            CommanderLogic = new CommanderLogic(this);
+            //CommanderLogic = new CommanderLogic(this);
             //DisableDeathLogic = new DisableDeathLogic(this);
             //FixScoreBoardAfterPlayerDeadLogic = new FixScoreBoardAfterPlayerDeadLogic(this);
             //MissionSpeedLogic = new MissionSpeedLogic(this);
             SwitchFreeCameraLogic = new SwitchFreeCameraLogic(this);
             //SwitchTeamLogic = new SwitchTeamLogic(this);
-            ControlTroopLogic = new ControlTroopLogic(this);
+            //ControlTroopLogic = new ControlTroopLogic(this);
             //CampaignSkillLogic = new CampaignSkillLogic(this);
         }
 
@@ -39,11 +39,11 @@ namespace RTSCamera.Logic
         {
             base.OnBehaviorInitialize();
 
-            CommanderLogic.OnBehaviourInitialize();
+            //CommanderLogic.OnBehaviourInitialize();
             //FixScoreBoardAfterPlayerDeadLogic.OnBehaviourInitialize();
-            SwitchFreeCameraLogic.OnBehaviourInitialize();
+            //SwitchFreeCameraLogic.OnBehaviourInitialize();
             //SwitchTeamLogic.OnBehaviourInitialize();
-            ControlTroopLogic.OnBehaviourInitialize();
+            //ControlTroopLogic.OnBehaviourInitialize();
             //CampaignSkillLogic.OnBehaviourInitialize();
         }
 
@@ -51,9 +51,9 @@ namespace RTSCamera.Logic
         {
             base.OnRemoveBehavior();
 
-            CommanderLogic.OnRemoveBehaviour();
+            //CommanderLogic.OnRemoveBehaviour();
             //FixScoreBoardAfterPlayerDeadLogic.OnRemoveBehaviour();
-            SwitchFreeCameraLogic.OnRemoveBehaviour();
+            //SwitchFreeCameraLogic.OnRemoveBehaviour();
             
             Instance = null;
         }
@@ -66,20 +66,20 @@ namespace RTSCamera.Logic
             //MissionSpeedLogic.AfterStart();
         }
 
-        public override void AfterAddTeam(Team team)
+        /*public override void AfterAddTeam(Team team)
         {
             base.AfterAddTeam(team);
 
             SwitchFreeCameraLogic.AfterAddTeam(team);
-            //CampaignSkillLogic.AfterAddTeam(team);
-        }
+            CampaignSkillLogic.AfterAddTeam(team);
+        }*/
 
-        public override void OnFormationUnitsSpawned(Team team)
+        /*public override void OnFormationUnitsSpawned(Team team)
         {
             base.OnFormationUnitsSpawned(team);
 
             SwitchFreeCameraLogic.OnFormationUnitsSpawned(team);
-        }
+        }*/
 
         public override void OnMissionTick(float dt)
         {
@@ -92,19 +92,19 @@ namespace RTSCamera.Logic
             //ControlTroopLogic.OnMissionTick(dt);
         }
 
-        public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)
+        /*public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)
         {
             base.OnMissionModeChange(oldMissionMode, atStart);
 
             SwitchFreeCameraLogic.OnMissionModeChange(oldMissionMode, atStart);
-        }
+        }*/
 
-        protected override void OnAgentControllerChanged(Agent agent, Agent.ControllerType oldController)
+        /*protected override void OnAgentControllerChanged(Agent agent, Agent.ControllerType oldController)
         {
             base.OnAgentControllerChanged(agent, oldController);
 
             SwitchFreeCameraLogic.OnAgentControllerChanged(agent);
-        }
+        }*/
 
         public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
         {

@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+﻿/*using HarmonyLib;
 using MissionSharedLibrary.Utilities;
 using RTSCamera.Logic;
 using System;
@@ -51,4 +51,4 @@ namespace RTSCamera.Patch
             }
         }
     }
-}
+}*/

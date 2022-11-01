@@ -1,4 +1,4 @@
-﻿using MissionSharedLibrary.Utilities;
+﻿/*using MissionSharedLibrary.Utilities;
 using RTSCamera.Config;
 using RTSCamera.Config.HotKey;
 using TaleWorlds.Engine;
@@ -30,8 +30,8 @@ namespace RTSCamera.Logic.SubLogic
             if (!NativeConfig.CheatMode)
                 return;
 
-            /*if (_config.SwitchTeamHotkeyEnabled && RTSCameraGameKeyCategory.GetKey(GameKeyEnum.SwitchTeam).IsKeyPressed(Mission.InputManager))
-                SwapTeam();*/
+            if (_config.SwitchTeamHotkeyEnabled && RTSCameraGameKeyCategory.GetKey(GameKeyEnum.SwitchTeam).IsKeyPressed(Mission.InputManager))
+                SwapTeam();
         }
 
         public void SwapTeam()
@@ -76,3 +76,4 @@ namespace RTSCamera.Logic.SubLogic
         }
     }
 }
+*/

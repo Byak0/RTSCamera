@@ -5,7 +5,6 @@ using MissionSharedLibrary.Utilities;
 using MissionSharedLibrary.View.ViewModelCollection;
 using MissionSharedLibrary.View.ViewModelCollection.Options;
 using MissionSharedLibrary.View.ViewModelCollection.Options.Selection;
-using RTSCamera.CampaignGame.Behavior;
 using RTSCamera.Logic;
 using RTSCamera.View;
 using TaleWorlds.CampaignSystem;
@@ -53,7 +52,7 @@ namespace RTSCamera.Config
                     {
                         RTSCameraConfig.Get().RaisedHeight = f;
                     }, 0, 50, true, true));
-                if (!WatchBattleBehavior.WatchMode)
+                /*if (!WatchBattleBehavior.WatchMode)
                 {
                     if (Campaign.Current != null)
                     {
@@ -85,7 +84,7 @@ namespace RTSCamera.Config
                             () => RTSCameraSkillBehavior.CameraDistanceLimit,
                             RTSCameraSkillBehavior.UpdateCameraDistanceLimit, 0, RTSCameraSkillBehavior.CameraDistanceMaxLimit, false, true));
                     }
-                }
+                }*/
                 cameraOptionCategory.AddOption(new BoolOptionViewModel(
                     GameTexts.FindText("str_rts_camera_camera_height_follows_terrain"),
                     GameTexts.FindText("str_rts_camera_camera_height_follows_terrain_hint"), () => RTSCameraConfig.Get().CameraHeightFollowsTerrain,
@@ -118,45 +117,42 @@ namespace RTSCamera.Config
                 optionClass.AddOptionCategory(0, cameraOptionCategory);
 
                 var controlOptionCategory = new OptionCategory("Control",
-                    GameTexts.FindText("str_rts_camera_control_options"));
-                if (!WatchBattleBehavior.WatchMode)
-                {
-                    controlOptionCategory.AddOption(new SelectionOptionViewModel(
-                        GameTexts.FindText("str_rts_camera_player_controller_in_free_camera"),
-                        GameTexts.FindText("str_rts_camera_player_controller_in_free_camera_hint"),
-                        new SelectionOptionData(i =>
+                GameTexts.FindText("str_rts_camera_control_options"));
+                controlOptionCategory.AddOption(new SelectionOptionViewModel(
+                    GameTexts.FindText("str_rts_camera_player_controller_in_free_camera"),
+                    GameTexts.FindText("str_rts_camera_player_controller_in_free_camera_hint"),
+                    new SelectionOptionData(i =>
+                    {
+                        if (i < 0 || i >= (int)Agent.ControllerType.Count)
+                            return;
+                        RTSCameraConfig.Get().PlayerControllerInFreeCamera = i;
+                        if (rtsCameraLogic.SwitchFreeCameraLogic.IsSpectatorCamera && !Utility.IsPlayerDead())
                         {
-                            if (i < 0 || i >= (int)Agent.ControllerType.Count)
-                                return;
-                            RTSCameraConfig.Get().PlayerControllerInFreeCamera = i;
-                            if (rtsCameraLogic.SwitchFreeCameraLogic.IsSpectatorCamera && !Utility.IsPlayerDead())
-                            {
-                                Utilities.Utility.UpdateMainAgentControllerInFreeCamera(Mission.Current.MainAgent,
-                                    (Agent.ControllerType)i);
-                                Utilities.Utility.UpdateMainAgentControllerState(Mission.Current.MainAgent,
-                                    rtsCameraLogic.SwitchFreeCameraLogic.IsSpectatorCamera, (Agent.ControllerType)i);
-                            }
-                        }, () =>
+                            Utilities.Utility.UpdateMainAgentControllerInFreeCamera(Mission.Current.MainAgent,
+                                (Agent.ControllerType)i);
+                            Utilities.Utility.UpdateMainAgentControllerState(Mission.Current.MainAgent,
+                                rtsCameraLogic.SwitchFreeCameraLogic.IsSpectatorCamera, (Agent.ControllerType)i);
+                        }
+                    }, () =>
+                    {
+                        if (rtsCameraLogic.SwitchFreeCameraLogic.IsSpectatorCamera && !Utility.IsPlayerDead())
                         {
-                            if (rtsCameraLogic.SwitchFreeCameraLogic.IsSpectatorCamera && !Utility.IsPlayerDead())
-                            {
-                                if (Mission.Current.MainAgent.Controller == Agent.ControllerType.AI)
-                                    return (int)Agent.ControllerType.AI;
-                                var controller = Mission.Current.GetMissionBehavior<MissionMainAgentController>();
-                                if (controller == null || controller.IsDisabled ||
-                                    Mission.Current.MainAgent.Controller == Agent.ControllerType.None)
-                                    return (int)Agent.ControllerType.None;
-                                return (int)Agent.ControllerType.Player;
-                            }
+                            //if (Mission.Current.MainAgent.Controller == Agent.ControllerType.AI)
+                            //    return (int)Agent.ControllerType.AI;
+                            var controller = Mission.Current.GetMissionBehavior<MissionMainAgentController>();
+                            if (controller == null || controller.IsDisabled ||
+                                Mission.Current.MainAgent.Controller == Agent.ControllerType.None)
+                                return (int)Agent.ControllerType.None;
+                            return (int)Agent.ControllerType.Player;
+                        }
 
-                            return RTSCameraConfig.Get().PlayerControllerInFreeCamera;
-                        }, (int)Agent.ControllerType.Count, new[]
-                        {
-                            new SelectionItem(true, "str_rts_camera_controller_type", "none"),
-                            //new SelectionItem(true, "str_rts_camera_controller_type", "AI"),
-                            new SelectionItem(true, "str_rts_camera_controller_type", "Player")
-                        }), true));
-                }
+                        return RTSCameraConfig.Get().PlayerControllerInFreeCamera;
+                    }, (int)Agent.ControllerType.Count, new[]
+                    {
+                        new SelectionItem(true, "str_rts_camera_controller_type", "none"),
+                        //new SelectionItem(true, "str_rts_camera_controller_type", "AI"),
+                        new SelectionItem(true, "str_rts_camera_controller_type", "Player")
+                    }), true));
                 /*var playerFormationOption = new SelectionOptionViewModel(
                     GameTexts.FindText("str_rts_camera_player_formation"),
                     GameTexts.FindText("str_rts_camera_player_formation_hint"), new SelectionOptionData(

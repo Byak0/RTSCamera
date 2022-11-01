@@ -1,4 +1,4 @@
-﻿using TaleWorlds.CampaignSystem;
+﻿/*using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
 namespace RTSCamera.CampaignGame.Skills
@@ -47,3 +47,4 @@ namespace RTSCamera.CampaignGame.Skills
         }
     }
 }
+*/

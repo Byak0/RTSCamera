@@ -1,4 +1,4 @@
-﻿using MissionSharedLibrary.Utilities;
+﻿/*using MissionSharedLibrary.Utilities;
 using RTSCamera.CampaignGame.Behavior;
 using RTSCamera.Config;
 using TaleWorlds.CampaignSystem;
@@ -68,4 +68,4 @@ namespace RTSCamera.Logic.SubLogic
             return agent.IsHuman && agent.IsActive();
         }
     }
-}
+}*/

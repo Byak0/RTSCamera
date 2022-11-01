@@ -1,6 +1,6 @@
 ﻿using MissionLibrary.Controller.Camera;
 using MissionSharedLibrary.Utilities;
-using RTSCamera.CampaignGame.Behavior;
+//using RTSCamera.CampaignGame.Behavior;
 using RTSCamera.Config;
 using RTSCamera.Config.HotKey;
 using RTSCamera.Logic;
@@ -8,14 +8,14 @@ using RTSCamera.Logic.SubLogic;
 using System;
 using System.Linq;
 using System.Reflection;
-using TaleWorlds.CampaignSystem;
+//using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
-using TaleWorlds.Engine.GauntletUI;
+//using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
-using TaleWorlds.MountAndBlade.Missions.Handlers;
+//using TaleWorlds.MountAndBlade.Missions.Handlers;
 using TaleWorlds.MountAndBlade.View.MissionViews;
 using TaleWorlds.MountAndBlade.View.Screens;
 using TaleWorlds.ScreenSystem;
@@ -433,7 +433,7 @@ namespace RTSCamera.View
             {
                 if (_previousHeightToTerrain.HasValue && !hasVerticalInput)
                 {
-                    cameraFrame.origin.z = _previousHeightToTerrain.Value + terrainHeight;
+                    cameraFrame.origin.z = _previousHeightToTerrain.Value + (_config.IgnoreTerrain ? terrainHeight : groundHeight);
                 }
             }
 
@@ -486,10 +486,10 @@ namespace RTSCamera.View
                 cameraFrame.origin += _cameraSpeed.z * cameraFrame.rotation.f * dt;
             }
 
-            if (RTSCameraSkillBehavior.ShouldLimitCameraDistance(Mission))
+            /*if (RTSCameraSkillBehavior.ShouldLimitCameraDistance(Mission))
             {
                 LimitCameraDistance(ref cameraFrame, dt, num1);
-            }
+            }*/
 
             if (_config.CameraHeightFollowsTerrain)
             {
@@ -512,7 +512,7 @@ namespace RTSCamera.View
             UpdateCameraFrameAndDof(cameraFrame);
         }
 
-        private void LimitCameraDistance(ref MatrixFrame cameraFrame, float dt, float speed)
+        /*private void LimitCameraDistance(ref MatrixFrame cameraFrame, float dt, float speed)
         {
             if (RTSCameraGameKeyCategory.GetKey(GameKeyEnum.IncreaseCameraDistanceLimit).IsKeyDownInOrder(Input))
             {
@@ -547,7 +547,7 @@ namespace RTSCamera.View
             }
 
             cameraFrame.origin = Vec3.Lerp(targetPosition, cameraFrame.origin, MathF.Pow(0.02f, dt));
-        }
+        }*/
 
         private void UpdateCameraFrameAndDof(MatrixFrame matrixFrame)
         {
