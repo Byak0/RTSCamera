@@ -431,9 +431,10 @@ namespace RTSCamera.View
 
             if (_config.CameraHeightFollowsTerrain)
             {
-                if (_previousHeightToTerrain.HasValue && !hasVerticalInput)
+                bool sceneCollision = Mission.Scene.GetGroundHeightAtPosition(cameraFrame.origin, BodyFlags.CommonCollisionExcludeFlags) > Mission.Scene.GetTerrainHeight(cameraFrame.origin.AsVec2) + 0.5f;
+                if (_previousHeightToTerrain.HasValue && !hasVerticalInput && !sceneCollision)
                 {
-                    cameraFrame.origin.z = _previousHeightToTerrain.Value + (_config.IgnoreTerrain ? terrainHeight : groundHeight);
+                    cameraFrame.origin.z = _previousHeightToTerrain.Value + terrainHeight;
                 }
             }
 
