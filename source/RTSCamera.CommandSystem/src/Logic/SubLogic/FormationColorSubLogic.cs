@@ -294,7 +294,7 @@ namespace RTSCamera.CommandSystem.Logic.SubLogic
 
             if (Utility.IsTeamValid(Mission.Current.PlayerEnemyTeam))
             {
-                var allyAsTargetFormations = Mission.Current.PlayerEnemyTeam.FormationsIncludingSpecial
+                var allyAsTargetFormations = Mission.Current.PlayerEnemyTeam.FormationsIncludingSpecialAndEmpty
                     .Where(formation => formation.GetReadonlyMovementOrderReference().OrderType == OrderType.ChargeWithTarget)
                     .Select(formation => formation.GetReadonlyMovementOrderReference().TargetFormation).ToList();
 
