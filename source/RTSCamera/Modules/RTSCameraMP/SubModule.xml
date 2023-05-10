@@ -3,7 +3,7 @@
   <Name value="RTS Camera MP"/>
   <Id value="RTSCameraMP"/>
   <Version value="e4.1.15.0"/>
-	<ModuleCategory value="Multiplayer"/>
+	<ModuleCategory value="MultiplayerOptional"/>
   <DependedModules>
     <DependedModule Id="Native" DependentVersion="e1.8.1" />
   </DependedModules>
