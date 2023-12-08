@@ -56,14 +56,14 @@ namespace RTSCamera.CommandSystem.Logic.SubLogic
 
         private readonly Queue<Action> _actionQueue = new Queue<Action>();
 
-        public  void OnBehaviourInitialize()
+        public void OnBehaviourInitialize()
         {
             Mission.Current.Teams.OnPlayerTeamChanged += Mission_OnPlayerTeamChanged;
             Game.Current.EventManager.RegisterEvent<MissionPlayerToggledOrderViewEvent>(OnToggleOrderViewEvent);
             _orderUiHandler = Mission.Current.GetMissionBehavior<MissionGauntletSingleplayerOrderUIHandler>();
         }
 
-        public  void OnRemoveBehaviour()
+        public void OnRemoveBehaviour()
         {
             _actionQueue.Clear();
             _enemyAsTargetFormations.Clear();
@@ -108,7 +108,7 @@ namespace RTSCamera.CommandSystem.Logic.SubLogic
             }
         }
 
-        public  void AfterAddTeam(Team team)
+        public void AfterAddTeam(Team team)
         {
             team.OnOrderIssued += OnOrderIssued;
             team.OnFormationsChanged += OnFormationsChanged;
@@ -119,7 +119,7 @@ namespace RTSCamera.CommandSystem.Logic.SubLogic
             //}
         }
 
-        public  void OnAgentBuild(Agent agent, Banner banner)
+        public void OnAgentBuild(Agent agent, Banner banner)
         {
             if (agent.Formation != null)
             {
@@ -141,7 +141,7 @@ namespace RTSCamera.CommandSystem.Logic.SubLogic
             }
         }
 
-        public  void OnAgentFleeing(Agent affectedAgent)
+        public void OnAgentFleeing(Agent affectedAgent)
         {
             ClearAgentFormationContour(affectedAgent);
             affectedAgent.GetComponent<RTSCameraComponent>()?.UpdateContour();
@@ -189,7 +189,7 @@ namespace RTSCamera.CommandSystem.Logic.SubLogic
             }
         }
 
-        private void OnOrderIssued(OrderType orderType, IEnumerable<Formation> appliedFormations, params object[] delegateParams)
+        private void OnOrderIssued(OrderType orderType, MBReadOnlyList<Formation> appliedFormations, OrderController orderController, params object[] delegateParams)
         {
             if (!HighlightEnabledForAsTargetFormation || movementOrderTypes.FindIndex(o => o == orderType) == -1)
                 return;
